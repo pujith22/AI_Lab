@@ -57,7 +57,6 @@ state* moveUp(state s)
 		return NULL;
 
 	state* temp = (state*)malloc(sizeof(state));
-	//temp->arr = (int **)malloc(size*malloc(size*sizeof(int)));
 	int i,j;
 	for(i=0;i<size;i++)
 	{
@@ -81,7 +80,6 @@ state* moveDown(state s)
 		return NULL;
 
 	state* temp = (state*)malloc(sizeof(state));
-	//temp->arr = (int **)malloc(size*malloc(size*sizeof(int)));
 	int i,j;
 	for(i=0;i<size;i++)
 	{
@@ -105,7 +103,6 @@ state* moveLeft(state s)
 		return NULL;
 
 	state* temp = (state*)malloc(sizeof(state));
-	//temp->arr = (int **)malloc(size*malloc(size*sizeof(int)));
 	int i,j;
 	for(i=0;i<size;i++)
 	{
@@ -129,7 +126,6 @@ state* moveRight(state s)
 		return NULL;
 
 	state* temp = (state*)malloc(sizeof(state));
-	//temp->arr = (int **)malloc(size*malloc(size*sizeof(int)));
 	int i,j;
 	for(i=0;i<size;i++)
 	{
@@ -144,6 +140,8 @@ state* moveRight(state s)
 	temp->posY = temp->posY + 1;
 	return temp;
 }
+
+state* operation(state* s,int operation )
 
 int compareStates(state *a,state *b)
 {
@@ -255,7 +253,6 @@ void main()
 	printState(*q);
 	printState(*r);
 	printState(*z);*/
-
 
 
 }
