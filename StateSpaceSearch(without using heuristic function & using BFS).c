@@ -23,8 +23,6 @@ void printState(state s)
 
 	}
 	printf("\n");
-	printf("row: %d\tcolumn: %d",s.posX,s.posY);
-    printf("\n");
 }
 
 void inputState(state *s)
@@ -304,6 +302,7 @@ void main()
 
             if(newState!=NULL)
             {
+                newState->operation = i;
                    if(isInQueue(&q2,newState)==0)
                 {
                     newState->parent = s;
