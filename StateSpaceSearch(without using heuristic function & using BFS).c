@@ -315,5 +315,6 @@ void main()
        }
     }
 
-}
+    printf("\nNot possible to go from initial configuration to final configuration provided. Sorry!\n\n ");
 
+}
