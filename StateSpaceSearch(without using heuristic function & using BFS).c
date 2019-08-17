@@ -1,11 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
-
-int size = 3;
+#define size 3
 
 typedef struct State{
     struct State* parent;
-	int arr[4][4];
+	int arr[size][size];
 	int posX;
 	int posY;
 	int operation;
@@ -32,7 +31,7 @@ void inputState(state *s)
 		for(j=0;j<size;j++)
 			scanf("%d",&s->arr[i][j]);
 }
-void initialize(state *s)
+void initializeState(state *s)
 {
 	int i,j;
 	s->parent = NULL;
@@ -193,6 +192,11 @@ queue_node* createNode(void* data)
     return temp;
 }
 
+void initializeQueue(queue* q)
+{
+    q->head = q->tail =NULL;
+}
+
 void enqueue(queue* q,void* data)
 {
     if(q->head==NULL)
@@ -270,21 +274,23 @@ void main()
 {
 	state initialState,finalState;
 	state* newState;
-	state* s;
+	state* s;          //For temporary Usage
+	queue q1,q2;                // For Fringe and visited states.
+	initializeQueue(&q1);
+	initializeQueue(&q2);
 	int i;
-	printf("\nEnter the Initial state configuration: \n");
+	printf("\nEnter the Initial state configuration (-1 for blank Tile): \n");
 	inputState(&initialState);
-	initialize(&initialState);
-	printf("\nEnter the Final State Configuration: \n");
+	initializeState(&initialState);
+	printf("\nEnter the Final State Configuration (-1 for blank Tile): \n");
 	inputState(&finalState);
-	initialize(&finalState);
+	initializeState(&finalState);
 	printf("\n\nInitial State: \n\n");
 	printState(initialState);
 	printf("\n\nFinal State: \n\n");
 	printState(finalState);
 	printf("\nOPERATIONS: \n");
-	queue q1,q2;
-	q1.head=q2.head=q1.tail=q1.head=NULL;
+
 	enqueue(&q1,&finalState);
 	while(isEmpty(&q1)!=1)
     {
@@ -315,6 +321,7 @@ void main()
        }
     }
 
-    printf("\nNot possible to go from initial configuration to final configuration provided. Sorry!\n\n ");
+    if(isEmpty(&q1))
+		printf("\nFinal State is not possible from the initial configuration provided. Sorry!\n\n ");
 
 }
