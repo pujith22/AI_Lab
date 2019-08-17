@@ -309,12 +309,14 @@ void main()
             if(newState!=NULL)
             {
                 newState->operation = i;
-                   if(isInQueue(&q2,newState)==0)
+                if(isInQueue(&q2,newState)==0)
                 {
                     newState->parent = s;
                     enqueue(&q1,newState);
 
                 }
+                else
+                	free(newState);
             }
 
 
