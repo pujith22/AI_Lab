@@ -237,7 +237,6 @@ void initializeQueue(queue* q)
 {
     q->head = q->tail =NULL;
 }
-
 void enqueue(queue* q,void* data)
 {
     if(q->head==NULL)
