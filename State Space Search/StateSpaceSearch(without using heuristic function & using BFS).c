@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
 #define size 3
 
 typedef struct State{
@@ -272,6 +273,7 @@ void backtrack(state* FinalState)
 
 void main()
 {
+	clock_t begin,end;
 	state initialState,finalState;
 	state* newState;
 	state* s;          //For temporary Usage
@@ -290,6 +292,8 @@ void main()
 	printf("\n\nFinal State: \n\n");
 	printState(finalState);
 	printf("\nOPERATIONS: \n");
+
+	begin = clock();
 
 	enqueue(&q1,&finalState);
 	while(isEmpty(&q1)!=1)
@@ -325,5 +329,9 @@ void main()
 
     if(isEmpty(&q1))
 		printf("\nFinal State is not possible from the initial configuration provided. Sorry!\n\n ");
+
+	end = clock();
+
+	printf("\nThe time taken using normal BFS is: %lf seconds.\n",((double)(end-begin))/CLOCKS_PER_SEC);
 
 }

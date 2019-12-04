@@ -14,3 +14,5 @@ evaluate :-	digit(S), digit(E), digit(N), digit(D), digit(M), digit(O), digit(R)
 			distinct([S, E, N, D, M,O, R, Y]),SEND is 1000*S + 100*E + 10*N + D,
 			MORE is 1000*M + 100*O + 10*R + E, MONEY is 10000*M + 1000*O + 100*N + 10*E + Y, 
 			MONEY is SEND + MORE, print([[S, E, N, D], [M, O, R,E], [M, O, N, E, Y]]).
+
+%query: evaluate.

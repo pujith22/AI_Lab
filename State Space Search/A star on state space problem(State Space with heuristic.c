@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h> //for calculating time
 #define size 3
+
 
 typedef struct State{
     struct State* parent;
@@ -389,6 +391,7 @@ void backtrack(state* FinalState)
 
 int main()
 {
+    clock_t begin,end;
 	state initialState,finalState;
 	state* newState;
 	state* s;
@@ -399,9 +402,12 @@ int main()
 	int i;
 	printf("\nEnter the Initial state configuration (-1 for blank Tile): \n");
 	inputState(&initialState);
-	initializeState(&initialState);
 	printf("\nEnter the Final State Configuration (-1 for blank Tile): \n");
 	inputState(&finalState);
+
+	begin = clock();
+
+	initializeState(&initialState);
 	initializeState(&finalState);
 	printf("\n\nInitial State: \n\n");
 	printState(initialState);
@@ -447,6 +453,7 @@ int main()
 
     if(q1.n == -1)
 		printf("\nFinal State is not possible from the initial configuration provided. Sorry!\n\n ");
-
+    end = clock();
+    printf("\nTime taken for execution using Misplaced heuristic is: %lf Seconds.\n",((double)end-begin)/CLOCKS_PER_SEC);
     return 0;
 }

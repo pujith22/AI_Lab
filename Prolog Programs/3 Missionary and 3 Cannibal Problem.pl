@@ -31,3 +31,5 @@ move([A,B,west],[A,D,east], '1 missionary come back') :- B < 3, D is B + 1.
 move([A,B,west],[A,D,east], '2 missionaries come back') :- B < 2, D is B + 2.
 
 safe([A,B,_]) :- (A =< B ; B = 0), C is 3 - A, D is 3 - B, (C =< D ;  D = 0).
+
+%Query: solve.
