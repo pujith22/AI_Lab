@@ -2,7 +2,8 @@
 #include<stdlib.h>  // for malloc and other function..
 #include<time.h> //for calculating time(i.e for clock() function)
 #include<windows.h> // for using Sleep(ms) in windows environment.
-#define size 3      // size to define size*size state puzzle(can be changed to our requirement)
+#define size 3// size to define size*size state puzzle(can be changed to our requirement)
+
 
 //Structure definition
 typedef struct State {
@@ -552,4 +553,21 @@ int main()
 	1 2 3
 	4 5 6
 	7 8 -1
+*/
+
+/*
+-1
+3
+8
+4
+1
+7
+2
+6
+5
+	1 2 3
+	4 5 6
+	7 8 -1
+
+
 */
